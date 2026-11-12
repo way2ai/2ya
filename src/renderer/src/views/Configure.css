@@ -1,0 +1,33 @@
+.configure-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  max-width: 420px;
+}
+
+.configure-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.configure-form input,
+.configure-form select {
+  padding: 6px 8px;
+  font-size: 14px;
+}
+
+.configure-form button {
+  align-self: flex-start;
+  padding: 8px 16px;
+}
+
+.configure-error {
+  color: #d33;
+}
+
+.configure-success {
+  color: #2a2;
+}

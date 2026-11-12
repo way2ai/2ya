@@ -1,0 +1,14 @@
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent; /* 配合 main/index.ts 里 petWindow 的 transparent: true */
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  user-select: none; /* 宠物窗口里的图片/文字不希望被误选中拖动 */
+}
