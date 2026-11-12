@@ -34,3 +34,7 @@
     # For Linux
     $ npm run build:linux
     ```
+
+## 效果
+
+![2ya](2ya-mvp.gif)
