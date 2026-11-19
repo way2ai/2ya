@@ -38,3 +38,12 @@
 ## 效果
 
 ![2ya](2ya-mvp.gif)
+
+## 协议
+
+遵循 [Apache License Version 2.0](./LICENSE)
+
+## 版本
+采用 [SemVer v2.0.0](https://semver.org/lang/zh-CN/spec/v2.0.0.html)
+
+项目处于 0.x 阶段，MINOR 版本可能包含不兼容变更；1.0 后遵循严格 SemVer。
