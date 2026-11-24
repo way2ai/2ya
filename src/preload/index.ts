@@ -15,7 +15,8 @@ const api: PetAPI = {
 
   // 订阅主进程广播的状态更新；返回取消订阅函数，供 React useEffect 清理时调用
   onStatus: (callback) => {
-    const listener = (_event: Electron.IpcRendererEvent, status: BackendStatus) => callback(status);
+    const listener = (_event: Electron.IpcRendererEvent, status: BackendStatus): void =>
+      callback(status);
     ipcRenderer.on('pet:status', listener);
     return () => ipcRenderer.removeListener('pet:status', listener);
   },

@@ -49,7 +49,7 @@ Python print + flush → py.stdout（Readable流，分片chunk）
  * 1. 处理背压，引入drain机制
  * 2. 引入 stderr 监听事件
  */
-function startBackend() {
+function startBackend(): void {
   const projectPath = app.getAppPath();
   const script = path.join(projectPath, 'src', 'backend', 'service.py');
   const process = spawn('uv', ['run', '--project', projectPath, 'python', '-u', script]);
@@ -102,7 +102,7 @@ function requestBackend(
 }
 
 // 后端广播状态给前端窗口
-function broadcast(status: BackendStatus) {
+function broadcast(status: BackendStatus): void {
   currentStatus = status;
   for (const window of [petWindow, configWindow]) {
     if (window && !window.isDestroyed()) {

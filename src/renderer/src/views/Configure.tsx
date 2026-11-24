@@ -2,7 +2,7 @@
 import { useEffect, useState, type ReactElement } from 'react';
 import type { BackendStatus } from '@shared/types';
 import { LanguageEnum } from '@shared/types';
-// @ts-ignore
+// @ts-ignore TypeScript may not have a CSS module declaration.
 import './Configure.css';
 
 const LANGUAGE_OPTIONS: { value: LanguageEnum; label: string }[] = [

@@ -1,7 +1,7 @@
 // src/renderer/src/views/Pet.tsx
 import { useEffect, useRef, useState, type ReactElement } from 'react';
 import { ActionEnum, type BackendStatus } from '@shared/types';
-// @ts-ignore
+// @ts-ignore TypeScript may not have a CSS module declaration.
 import './Pet.css';
 
 const WALK_FRAME_COUNT = 9;
@@ -16,6 +16,10 @@ export default function Pet(): ReactElement {
   const [showBubble, setShowBubble] = useState(false);
   const [bubbleValue, setBubbleValue] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // 是否处于行走动画状态 + 当前帧率
+  const isWalking = status !== null && status.action === ActionEnum.WALK && status.fps > 0;
+  const fps = isWalking ? status.fps : 0;
 
   // 拉取初始状态 + 订阅主进程广播
   useEffect(() => {
@@ -32,15 +36,12 @@ export default function Pet(): ReactElement {
 
   // 目前只有一套“行走”帧图：action 为 walk 时循环播放，其余状态固定第一帧
   useEffect(() => {
-    if (!status || status.action !== ActionEnum.WALK || status.fps <= 0) {
-      setFrameIndex(0);
-      return;
-    }
+    if (fps <= 0) return;
     const timer = setInterval(() => {
       setFrameIndex((i) => (i + 1) % WALK_FRAME_COUNT);
-    }, 1000 / status.fps);
+    }, 1000 / fps);
     return () => clearInterval(timer);
-  }, [status?.action, status?.fps]);
+  }, [fps]);
 
   // 弹出气泡时自动聚焦输入框
   useEffect(() => {
